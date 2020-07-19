@@ -1,0 +1,25 @@
+<div class="main">
+    <h1>{{'AllProducts' | translate }}</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{{'Name' | translate }}</th>
+          <th scope="col">{{'DataCreate' | translate }}</th>
+          <th scope="col">{{'Sold' | translate }}</th>
+          <th scope="col">{{'Price' | translate }}</th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.date_create}}</td>
+          <td>{{product.sold}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+       
+      </tbody>
+    </table>
+</div>

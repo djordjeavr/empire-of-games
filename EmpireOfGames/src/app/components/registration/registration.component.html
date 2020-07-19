@@ -1,0 +1,15 @@
+<div class="login-form">
+    <h4>{{'SignUp' | translate }}</h4>
+<input type="text" [(ngModel)]="user.firstName" placeholder="{{'FirstName' | translate }}">
+<input type="text"  [(ngModel)]="user.lastName" placeholder="{{'LastName' | translate }}">
+<input type="email"  [(ngModel)]="user.email" placeholder="Email">
+<input type="text" maxlength="10"  [(ngModel)]="user.username" placeholder="{{'Username' | translate }}">
+<input type="password"  [(ngModel)]="user.password" placeholder="{{'Password' | translate }}">
+<input type="password"  [(ngModel)]="confirmationPassword" placeholder="{{'ConfirmPassword' | translate }}">
+<input type="text"  [(ngModel)]="user.country" placeholder="{{'Country' | translate }}"
+(keyup.enter)="saveUser()">
+
+<button (click)="saveUser()">{{'SignUp' | translate }}</button>
+<button (click)="backToLogin()">{{'Login' | translate }}</button>
+
+</div>

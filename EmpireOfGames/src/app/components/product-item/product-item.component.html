@@ -1,0 +1,63 @@
+<div class="wrapper">
+    <div class="heder-product">
+<div class="image">
+    <img style="width: 230px; height: 350px;" [src]=" commonService.product.image" alt="">
+</div>
+<div class="info">
+<div class="heder-info">
+    <ul>
+        <li>{{'Region' | translate }}: {{commonService.product.region}}</li>
+        <li>{{'Platform' | translate }}: <img style="width: 20px;" [src]="commonService.product.platformLogo" alt="">
+        {{commonService.product.platformName}}</li>
+        <li>{{'Company' | translate }}:<img style="width: 20px;" [src]="commonService.product.companyLogo" alt="">
+        {{commonService.product.companyName}}</li>
+    </ul>
+</div>
+<div class="title">
+    <h3>{{commonService.product.name}}</h3>
+</div>
+<div class="description">
+    <h4>{{'Description' | translate }}:</h4>
+    
+{{commonService.product.description}}
+</div>
+</div>
+<div class="price">
+    <div class="product-payment">
+        <p>{{'InStock' | translate }}</p>
+        <div class="product-price">
+        <span>{{'Price' | translate }}</span>  
+ 
+        <p style="text-align: left;">{{commonService.product.price}}EU</p>
+    </div>
+        <button *ngIf="userService.loggedUser.id"  (click)="insertInBasket()">{{'AddToCart' | translate }}</button>
+    </div>
+</div>
+</div>
+<div class="video">
+    <h2>{{commonService.product.name}} Trailer</h2>
+    <iframe width="660" height="435" [src]="sanitizer.bypassSecurityTrustResourceUrl(commonService.product.video) " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+</div>
+<hr>
+<button class="addComment" *ngIf="userService.loggedUser.id" 
+(click)="showTheArea()">{{'AddComment' | translate }}</button>
+<div class="commentaries">
+    <div class="commentary" *ngFor="let comment of commentaries">
+        <div class="user-image">
+            <img src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg" alt="">
+        </div>
+        <div class="text">
+            <p>{{comment.username}}</p>
+           {{comment.comment}}
+        </div>
+    </div>
+   <div class="comment" *ngIf="!isHiddenArea">
+       <textarea [(ngModel)]="comment.comment" name="" id="" cols="120" rows="5" placeholder="Enter a comment"></textarea>
+       <div class="buttons">
+           <button (click)="saveComment()">{{'Add' | translate }}</button>
+           <button (click)="hideTheArea()">{{'Cancel' | translate }}</button>
+       </div>
+   </div>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="main">
+    <h1>{{'AllComments' | translate }}</h1>
+    <table class="table table-dark">     
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">{{'ProductName' | translate }}</th>
+            <th scope="col">{{'Username' | translate }}</th>
+            <th scope="col">Email</th>
+            <th scope="col">{{'Comment' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let comment of comments">
+            <th scope="row">{{comment.id}}</th>
+            <td>{{comment.nameProduct}}</td>
+            <td>{{comment.username}}</td>
+            <td>{{comment.email}}</td>
+            <td>{{comment.comment}}</td>
+            
+          </tr>
+    
+        </tbody>
+      </table>
+</div>

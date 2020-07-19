@@ -1,0 +1,43 @@
+<div class="wrapper">
+<div class="heder">
+<app-menu></app-menu>
+
+</div>
+
+<div class="main">
+
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="footer">
+    <img src="../assets/logo.svg" alt="">
+    
+       
+    
+    <div class="translate" >
+        <img (click)="switchLang('bih') " src="https://cdn3.iconfinder.com/data/icons/world-flags-5/512/86-Bosnia_and_Herzegovina_Bosnia_and_Herzegovina_Sarajevo_BIH_Balkans_country_flag_-512.png" alt="">
+       <img (click)="switchLang('en') " src="https://cdn1.iconfinder.com/data/icons/flags-of-the-world-set-1-1/100/.svg-24-512.png" alt="">
+    </div>
+    
+    <div class="contact">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+    </div>
+    <div class="payment-methods">
+        <i class="fa fa-paypal" aria-hidden="true"></i>
+        <span>PayPal</span>
+        <i class="fa fa-cc-visa" aria-hidden="true"></i>
+        <span>VISA</span>
+        <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+        <span>MasterCard</span>
+    </div>
+    
+    
+   
+    
+    <p>Copyright 2020&copy;Empire of Games</p>
+</div>
+
+</div>

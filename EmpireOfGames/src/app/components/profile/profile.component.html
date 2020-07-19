@@ -1,0 +1,28 @@
+<div class="wrapper" *ngIf="!isClicked">
+    <div class="image">
+        <img *ngIf="userService.loggedUser.role=='USER'" src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg" alt="">
+        <img *ngIf="userService.loggedUser.role=='ADMIN'" src="https://icons.iconarchive.com/icons/aha-soft/free-large-boss/512/Admin-icon.png" alt="">
+        <p>{{userService.loggedUser.role}}</p>
+    </div>
+    <div class="basicInformation">
+        <p>{{'FirstName' | translate }}: <span> {{userService.loggedUser.firstName}}</span></p>
+        <p>{{'LastName' | translate }}: <span>{{userService.loggedUser.lastName}}</span></p>
+        <p>Email: <span> {{userService.loggedUser.email}}</span></p>
+        <p>{{'Username' | translate }}: <span> {{userService.loggedUser.username}}</span></p>
+        <p>{{'Country' | translate }}: <span> {{userService.loggedUser.country}}</span></p>
+       
+    </div>
+    <button (click)=" moveToUpdateUser()">{{'Settings' | translate }}</button>
+    <div class="orderItems">
+        <h3>{{'PurchasedProducts' | translate }}</h3>
+        <div class="products"> 
+        <div class="product" *ngFor="let order of orders">
+            <img [src]="order.image" alt="">
+             <div class="title">{{order.name}}</div>
+              <div class="price">{{order.price}}EU</div>
+        </div>
+    </div>
+    </div>
+    
+</div>
+<app-update-profile *ngIf="isClicked"></app-update-profile>

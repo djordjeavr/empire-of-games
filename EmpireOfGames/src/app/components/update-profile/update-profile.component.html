@@ -1,0 +1,32 @@
+<div class="wrapper">
+    
+    <div  class="update-user">
+        <h4>{{'AccountEmail' | translate }}</h4>
+        <span>{{'CurrentPassword' | translate }}</span>
+        <input [(ngModel)]="currentPassword" type="password"  (keyup.enter)="updateUser()">
+        <br>
+        <span>{{'NewEmail' | translate }}</span>
+        <input [(ngModel)]="user.email" type="text"(keyup.enter)="updateUser()">
+        <button (click)="updateUser()">{{'ChangeEmail' | translate }}</button>
+    </div>
+    <div class="update-user">
+        <h4>{{'AccountPassword' | translate }}</h4>
+        <span>{{'CurrentPassword' | translate }}</span>
+        <input [(ngModel)]="currentPassword" type="password" (keyup.enter)="updateUser()">
+        <br>
+        <span>{{'NewPassword' | translate }}</span>
+        <input [(ngModel)]="user.password" type="password" (keyup.enter)="updateUser()">
+        <span>{{'ConfirmPassword' | translate }}</span>
+        <input [(ngModel)]="confirmPassword" type="password" (keyup.enter)="updateUser()">
+        <button (click)="updateUser()">{{'ChangePassword' | translate }}</button>
+    </div>
+    <div  class="update-user">
+        <h4>{{'AccountUsername' | translate }} </h4>
+        <span>{{'CurrentPassword' | translate }}</span>
+        <input [(ngModel)]="currentPassword" type="password"(keyup.enter)="updateUser()">
+        <br>
+        <span>{{'NewUsername' | translate }}</span>
+        <input maxlength="10" [(ngModel)]="user.username" type="text" (keyup.enter)="updateUser()">
+        <button (click)="updateUser()">{{'ChangeUsername' | translate }}</button>
+    </div>
+</div>

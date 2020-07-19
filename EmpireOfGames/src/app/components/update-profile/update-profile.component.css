@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.update-user {
+  width: 400px;
+  padding: 20px;
+  float: left;
+}
+
+.update-user h4 {
+  margin-bottom: 30px;
+  color: #5495eb;
+}
+
+.update-user input {
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.update-user span {
+  color: #5495eb;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.update-user button {
+  width: 300px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: #5495eb;
+  color: white;
+  font-size: 22px;
+}
+
+.update-user button:hover {
+  background: #0052bf;
+}
+/*# sourceMappingURL=update-profile.component.css.map */

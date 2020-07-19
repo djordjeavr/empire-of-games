@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="title">
+      <h3>{{'Software' | translate }} </h3><span>({{'Products' | translate }}: {{products}})</span>
+      <div class="sort">
+        <span>{{'Sort' | translate }}</span>
+     <select name="" id="" [(ngModel)]="searchProducts.sort" (change)="searchSoftware()">
+      <option value="Newest">{{'Newest' | translate }}</option>
+       <option value="Price-lower">{{'Price-lower' | translate }}</option>
+       <option value="Price highest">{{'price-highest' | translate }}</option>
+     </select>
+      </div>
+      <hr>
+    </div>
+    <div class="category">
+        <div class="filters-wrapper">
+          <div class="filters-title" style="font-weight: 400;">{{'FilterProducts' | translate }}</div>
+          <div class="filters-title" (click)="isCollapsed($event)" index='1'>{{'Price' | translate }} <i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!collapsed.area_hidden"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden"></i>
+        
+        <div class="price-filter" *ngIf="collapsed.area_hidden">
+            <input [(ngModel)]=" searchProducts.priceFrom" type="number" placeholder="{{'From' | translate }}" (keyup.enter)="searchSoftware()">
+            <span>  -  </span>
+            <input type="number" placeholder="{{'To' | translate }}" [(ngModel)]="searchProducts.priceTo" (keyup.enter)="searchSoftware()">
+        </div>
+        </div>
+       
+         
+        </div>
+    </div>
+<div class="products-container">
+    <div class="product-card" *ngFor="let software of commonService.allProducts" (click)=" commonService.displayProduct(software.id,software.category_id)" >
+     <img [src]="software.image" alt="">
+    <div class="price">
+        <span>{{software.price}} EU</span>
+    </div>
+    <div class="title">
+      <h6>{{software.name}}</h6>
+    </div>
+    </div>
+</div>
+</div>

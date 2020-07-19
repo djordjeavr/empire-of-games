@@ -1,0 +1,108 @@
+.wrapper {
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+}
+
+.image {
+  width: 300px;
+  padding: 20px;
+  float: left;
+  margin-right: 30px;
+}
+
+.image img {
+  width: 200px;
+}
+
+.image p {
+  text-align: center;
+  font-size: 22px;
+  margin-right: 60px;
+  font-weight: 500;
+}
+
+.basicInformation {
+  width: 400px;
+  padding: 10px;
+  padding-top: 50px;
+  float: left;
+  margin-right: 30px;
+}
+
+.basicInformation p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.basicInformation p span {
+  font-weight: 400;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  margin-left: 170px;
+  margin-top: 70px;
+  border: none;
+  outline: none;
+  background: #5495eb;
+  color: white;
+  font-size: 22px;
+}
+
+button:hover {
+  background: #0052bf;
+}
+
+.orderItems {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.orderItems h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.orderItems img {
+  width: 80px;
+  display: block;
+  float: left;
+}
+
+.title {
+  width: 400px;
+  padding: 5px;
+  float: left;
+  margin-left: 200px;
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.price {
+  width: 200px;
+  padding: 5px;
+  float: right;
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.product {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.products {
+  width: 100%;
+  height: 300px;
+  padding: 5px;
+  overflow-y: scroll;
+}
+/*# sourceMappingURL=profile.component.css.map */

@@ -1,0 +1,71 @@
+<div class="main">
+    <h1>{{'Features' | translate }}</h1>
+    
+    <div class="features">
+    <div class="feature">
+        <h4>{{'Device' | translate }}</h4>
+        <ul>
+            <li *ngFor="let device of devices"><i  class="fa fa-times" aria-hidden="true"  (click)="deleteFeatures('Device',device.id)"></i>{{ device.name}}</li>
+        </ul>
+       
+        <input type="text" *ngIf="feature.isClicked" [(ngModel)]="feature.name" placeholder="{{'Name' | translate }}" (keyup.enter)="saveNewFeatures()">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked" (click)="saveNewFeatures()" ></i>
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="!feature.isClicked"  (click)="showArea($event)"><span index=1>{{'Add' | translate }}</span></i>
+    </div>
+    <div class="feature">
+        <h4>{{'CategoriesGiftCards' | translate }}</h4>
+        <ul>
+            <li *ngFor="let item of category_gift_cards"><i class="fa fa-times" aria-hidden="true"  (click)="deleteFeatures('Subcategory gift card',item.id)"></i>{{item.name}}</li>
+        </ul>
+        
+        <input type="text" *ngIf="feature.isClicked1" placeholder="{{'Name' | translate }}"  [(ngModel)]="feature.name" (keyup.enter)="saveNewFeatures()">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked1" (click)="saveNewFeatures()"></i>
+        <i class="fa fa-plus" aria-hidden="true" *ngIf="!feature.isClicked1" (click)="showArea($event)"><span index=2>{{'Add' | translate }}</span></i>
+    </div>
+    <div class="feature">
+        <h4>{{'Platforms' | translate }}</h4>
+        <ul>
+            <li *ngFor="let platform of platforms"><i class="fa fa-times" aria-hidden="true" (click)="deleteFeatures('Platform',platform.id)"></i>{{platform.name}}</li>
+        </ul>
+        
+       
+        <input type="text" *ngIf="feature. isClicked2" placeholder="{{'Name' | translate }}" [(ngModel)]="feature.name" (keyup.enter)="saveNewFeatures()">
+        <input type="text" *ngIf="feature. isClicked2" placeholder="Logo"  [(ngModel)]="feature.logo">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked2" (click)="saveNewFeatures()"></i>
+        <i class="fa fa-plus" aria-hidden="true" *ngIf="!feature.isClicked2" (click)="showArea($event)"><span index=3>{{'Add' | translate }}</span></i>
+    </div>
+    <div class="feature">
+        <h4>{{'Genre' | translate }}</h4>
+        <ul>
+            <li *ngFor="let genre of genres" ><i class="fa fa-times" aria-hidden="true"  (click)="deleteFeatures('Genre',genre.id)"></i>{{genre.name}}</li>
+        </ul>
+        
+        
+        <input type="text" *ngIf="feature.isClicked3" placeholder="{{'Name' | translate }}" [(ngModel)]="feature.name" (keyup.enter)="saveNewFeatures()">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked3" (click)="saveNewFeatures()"></i>
+        <i class="fa fa-plus" aria-hidden="true" *ngIf="!feature.isClicked3" (click)="showArea($event)"><span index=4>{{'Add' | translate }}</span></i>
+    </div>
+
+    <div class="feature">
+        <h4>{{'CategoriesSoftware' | translate }}</h4>
+        <ul>
+            <li *ngFor="let item of category_software"><i class="fa fa-times" aria-hidden="true"  (click)="deleteFeatures('Subcategory software',item.id)"></i>{{item.name}}</li>
+        </ul>
+        <input type="text" *ngIf="feature.isClicked4" placeholder="{{'Name' | translate }}" [(ngModel)]="feature.name" (keyup.enter)="saveNewFeatures()">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked4" (click)="saveNewFeatures()"></i>
+        <i class="fa fa-plus" aria-hidden="true" *ngIf="!feature.isClicked4" (click)="showArea($event)"><span index=5>{{'Add' | translate }}</span></i>
+    </div>  
+    <div class="feature">
+        <h4>{{'Companies' | translate }}</h4>
+        <ul>
+            <li *ngFor="let company of companies"><i class="fa fa-times" aria-hidden="true"  (click)="deleteFeatures('Company',company.id)"></i>{{company.name}}</li>
+        </ul>
+        
+       
+        <input type="text" *ngIf="feature. isClicked5" placeholder="{{'Name' | translate }}" [(ngModel)]="feature.name" (keyup.enter)="saveNewFeatures()">
+        <input type="text" *ngIf="feature. isClicked5" placeholder="Logo"  [(ngModel)]="feature.logo">
+        <i class="fa fa-plus" aria-hidden="true"*ngIf="feature.isClicked5" (click)="saveNewFeatures()"></i>
+        <i class="fa fa-plus" aria-hidden="true" *ngIf="!feature.isClicked5" (click)="showArea($event)"><span index=6>{{'Add' | translate }}</span></i>
+    </div>  
+    </div>
+</div>

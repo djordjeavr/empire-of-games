@@ -1,0 +1,47 @@
+
+<div class="wrapper">
+    <div class="title">
+      <h3>{{'GiftCards' | translate }} </h3><span>({{'Products' | translate }}: {{numberOfProducts}})</span>
+      <div class="sort">
+        <span>{{'Sort' | translate }}</span>
+     <select [(ngModel)]="searchProducts.sort" (change)='searchAllProducts()'>
+      <option value="Newest">{{'Newest' | translate }}</option>
+       <option value="Price-lower">{{'Price-lower' | translate }}</option>
+       <option value="Price highest">{{'Price-highest' | translate }}</option>
+     </select>
+      </div>
+      <hr>
+    </div>
+    <div class="category">
+        <div class="filters-wrapper">
+          <div class="filters-title" style="font-weight: 400;">{{'FilterProducts' | translate }}</div>
+          <div class="filters-title" (click)="isCollapsed($event)" index='1'>{{'Price' | translate }}<i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!collapsed.area_hidden"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden"></i>
+        
+        <div class="price-filter" *ngIf="collapsed.area_hidden">
+            <input type="number" [(ngModel)]="searchProducts.priceFrom" placeholder="{{'From' | translate }}" (keyup.enter)="searchAllProducts()">
+            <span>  -  </span>
+            <input type="number" [(ngModel)]="searchProducts.priceTo" placeholder="{{'To' | translate }}" (keyup.enter)="searchAllProducts()">
+        </div>
+        </div>
+        <div class="filters-title" (click)="isCollapsed($event)" index='2'>{{'Platforms' | translate }} <i class="fa fa-sort-desc" aria-hidden="true"  *ngIf="!collapsed.area_hidden1"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden1"></i>
+            <ul *ngIf="collapsed.area_hidden1">
+                <li *ngFor="let platform of platforms"><input  [(ngModel)]="platform.isChecked" (change)="changeSelecttionPlatform()" type="checkbox"> {{platform.name}} </li>  
+            </ul>
+        </div>
+         
+        </div>
+    </div>
+<div class="products-container">
+    <div class="product-card" *ngFor="let giftCard of this.commonService.allProducts" (click)="commonService.displayProduct(giftCard.id,giftCard.category_id)" >
+     <img [src]="giftCard.image" alt="">
+    <div class="price">
+        <span>{{giftCard.price}} EU</span>
+    </div>
+    <div class="title">
+        <h6>{{giftCard.name}}</h6>
+      </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="main">
+    <h1>{{'AllUsers' | translate }}</h1>
+    <table class="table table-dark">     
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          
+          <th scope="col">Email</th>
+          <th scope="col">{{'Username' | translate }}</th>
+          <th scope="col">{{'TotalProductPurchased' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th scope="row">1</th>
+         
+          <td>{{user.email}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.totalProductsPurchased}}</td>
+        </tr>
+      
+      </tbody>
+    </table>
+</div>

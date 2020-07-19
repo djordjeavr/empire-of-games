@@ -1,0 +1,53 @@
+.heder {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  padding: 15px;
+  background: #141414;
+  color: white;
+}
+
+.footer p {
+  margin: 0;
+  text-align: center;
+  clear: both;
+}
+
+.footer img {
+  width: 350px;
+}
+
+.contact {
+  float: right;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.contact p {
+  text-align: right;
+}
+
+.payment-methods {
+  float: right;
+  width: 350px;
+  padding: 10px;
+  margin-right: 120px;
+  color: #5495eb;
+}
+
+.payment-methods i {
+  padding: 7px;
+  margin-left: 10px;
+}
+
+.wrapper {
+  width: 100%;
+}
+/*# sourceMappingURL=app.component.css.map */

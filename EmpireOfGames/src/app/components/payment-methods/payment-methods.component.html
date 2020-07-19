@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <div class="payment-methods">
+        <div class="heder">
+            <p>{{'TotalPrice' | translate }}: {{totalPrice}} <span>EU</span></p>
+        </div>
+        <div class="payment-method" *ngFor="let payment_method of payment_methods" (click)="SaveOrders(payment_method.id)"> 
+             <img style="width: 200px;" [src]="payment_method.logo" alt="">
+        </div>
+        
+    </div>
+</div>

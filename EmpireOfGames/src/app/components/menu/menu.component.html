@@ -1,0 +1,69 @@
+
+    <div class="heder-wraper" >
+        <div class="logo-container">
+            <img src="../../../../assets/logo.svg" alt="">
+        </div>
+        <div class="search"  >
+            <input type="search" [(ngModel)]="nameProducts" (blur)="notClickedSearch()"    (input)="searchAllProducts()"   placeholder="{{'Search' | translate }}">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="search-results" *ngIf=" isClickedSearch">
+          <p>{{'SearchResults' | translate }}:</p>
+          <hr>
+          <div class="results" >
+             <div class="product"   *ngFor="let product of productsSearched"  (click)="commonService.displayProduct(product.id,product.category_id)"   >
+                 <img [src]="product.smallImage" alt="">
+                 <span>{{product.name}}</span>
+                 <div class="price">
+                     <p>{{'Price' | translate }}</p>
+                    
+                     <span> {{product.price}}EU</span>
+                 </div>
+             </div>
+             
+          </div>
+        </div>
+    </div>
+    <div class="submenu-container">
+        <div class="navbar">
+            <ul>
+                <li >
+                  <div [routerLink]="['/home']" routerLinkActive="link-active"> <i class="fa fa-home" aria-hidden="true"></i>{{'Home' | translate }}</div> </li>
+                <li  >
+                  <div [routerLink]="['/gaming']" routerLinkActive="link-active">  <i class="fa fa-gamepad" aria-hidden="true"></i> {{'Games' | translate }} </div></li>
+                <li  >
+                  <div [routerLink]="['/software']" routerLinkActive="link-active">  <i class="fa fa-desktop" aria-hidden="true"></i>{{'Software' | translate }}</div>
+                    <div class="submenu">
+                        <ul>
+                            <li *ngFor="let category of allCategoriesSoftware" (click)="clickCategorySoftware(category)"><span>{{category.name}}</span><hr></li>
+                           
+                        </ul>
+                      
+                    </div>
+                    
+                </li>
+                <li >
+                  <div  [routerLink]="['/gift-cards']" routerLinkActive="link-active">  <i class="fa fa-credit-card" aria-hidden="true"></i>{{'GiftCards' | translate }} </div>
+                    <div class="submenu">
+                        <ul>
+                            <li *ngFor="let category1 of categoriesGiftCards" (click)="clickCategoryGiftCard(category1)"><span>{{category1.name}}</span><hr></li>
+                            
+                        </ul>
+                      
+                    </div>
+                </li>
+                <li *ngIf="userService.isAdminRole()" [routerLink]="['/admin']" routerLinkActive="link-active" >
+                    <i class="fa fa-user-secret" aria-hidden="true"></i>Admin 
+                </li>
+            </ul>
+        </div>
+        <div class="loginbox">
+            <p *ngIf="!userService.loggedUser.id" (click)="Login()" class="login"><i class="fa fa-user-circle-o" aria-hidden="true"></i>{{'Login' | translate }}</p>
+            <p *ngIf="userService.loggedUser.id" (click)=" moveToProfile()"><i class="fa fa-user" aria-hidden="true"></i> {{userService.loggedUser.username}}</p>
+            <p class="logout-basket" *ngIf="userService.loggedUser.id"><i class="fa fa-cart-plus" aria-hidden="true" (click)=" moveToBasket()"></i></p>
+           <p class="logout-basket" *ngIf="userService.loggedUser.id" > <i (click)="logout()" class="fa fa-power-off" aria-hidden="true" ></i></p>
+            <p class="darkMode"><i class="fa fa-moon-o" aria-hidden="true"></i></p>
+        </div>
+    </div>
+    
+

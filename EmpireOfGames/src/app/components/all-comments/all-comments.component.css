@@ -1,0 +1,20 @@
+.main {
+  width: 76%;
+  padding: 20px;
+  float: left;
+  padding-left: 80px;
+}
+
+h1 {
+  color: #858585;
+  margin-bottom: 20px;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+/*# sourceMappingURL=all-comments.component.css.map */

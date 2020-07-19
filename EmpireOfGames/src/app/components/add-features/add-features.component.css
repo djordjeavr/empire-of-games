@@ -1,0 +1,79 @@
+.main {
+  width: 76%;
+  padding: 20px;
+  float: left;
+  padding-left: 80px;
+}
+
+h1 {
+  color: #858585;
+  margin-bottom: 20px;
+}
+
+span {
+  color: #858585;
+  font-size: 18px;
+}
+
+.features {
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.feature {
+  width: 280px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.feature h4 {
+  background: #e0e0e0;
+  height: 30px;
+}
+
+.feature i {
+  margin-right: 10px;
+  color: #53e605;
+  cursor: pointer;
+}
+
+.feature span {
+  color: #53e605;
+  font-weight: bold;
+}
+
+.feature input {
+  width: 190px;
+  margin-left: 10px;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  margin-left: 30px;
+  border: none;
+  outline: none;
+  background: #5495eb;
+  color: white;
+  font-size: 22px;
+}
+
+button:hover {
+  background: #0052bf;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+li i {
+  color: red !important;
+}
+/*# sourceMappingURL=add-features.component.css.map */

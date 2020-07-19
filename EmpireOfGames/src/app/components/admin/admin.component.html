@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <div class="sidebar">
+        <div index=1 (click)="isClickedArea($event)"  class="admin-pages" [ngClass]="{'changed-background': isClickedArea1}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{'Dashboard' | translate }}</div>
+        <div index=2 (click)="isClickedArea($event)"  class="admin-pages" [ngClass]="{'changed-background': isClickedArea2}"><i class="fa fa-users" aria-hidden="true"></i>{{'AllUsers' | translate }}</div>
+        <div index=3 (click)="isClickedArea($event)" class="admin-pages" [ngClass]="{'changed-background': isClickedArea3}"><i class="fa fa-comments" aria-hidden="true"></i> {{'AllComments' | translate }}</div>
+        <div index=4 (click)="isClickedArea($event)" class="admin-pages" [ngClass]="{'changed-background': isClickedArea4}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> {{'AllProducts' | translate }}</div>
+        <div index=5 (click)="isClickedArea($event)" class="admin-pages" [ngClass]="{'changed-background': isClickedArea5}"><i class="fa fa-plus" aria-hidden="true"></i> {{'AddProduct' | translate }}</div>
+         <div index=6 (click)="isClickedArea($event)" class="admin-pages" [ngClass]="{'changed-background': isClickedArea6}"><i class="fa fa-pencil" aria-hidden="true"></i>{{'UpdateFeatures' | translate }}</div>
+         <div index=7 (click)="isClickedArea($event)" class="admin-pages" [ngClass]="{'changed-background': isClickedArea7}"><i class="fa fa-pencil" aria-hidden="true"></i>{{'UpdateProducts' | translate }}</div>
+        </div>
+        <div class="main"  *ngIf="isClickedArea1">
+            <div class="table-users">
+                <h1>{{'BestCustomers' | translate }}</h1>
+                <table class="table table-dark">     
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      
+      <th scope="col">Email</th>
+      <th scope="col">{{'Username' | translate }}</th>
+      <th scope="col">{{'TotalProductPurchased' | translate }}</th>
+    
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers" >
+      <th scope="row">1</th>
+     
+      <td>{{customer.email}}</td>
+      <td>{{customer.username}}</td>
+      <td>{{customer.totalProductsPurchased}}</td>
+   
+    </tr>
+  
+  </tbody>
+</table>
+            </div>
+            <div class="table-products">
+                <h1>{{'PopularProducts' | translate }}</h1>
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">{{'Name' | translate }}</th>
+                        <th scope="col">{{'DataCreate' | translate }}</th>
+                        <th scope="col">{{'Sold' | translate }}</th>
+                        <th scope="col">{{'Price' | translate }}</th>
+                     
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let product of products">
+                        <th scope="row">{{product.id}}</th>
+                        <td>{{product.name}}</td>
+                        <td>{{product.date_create}}</td>
+                        <td>{{product.sold}}</td>
+                        <td>{{product.price}}</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+            </div>
+    </div>
+    <app-all-users *ngIf="isClickedArea2"></app-all-users>
+    <app-all-products   *ngIf="isClickedArea4"></app-all-products>
+    <app-all-comments *ngIf="isClickedArea3"></app-all-comments>
+    <app-add-product *ngIf="isClickedArea5"></app-add-product>
+    <app-add-features *ngIf="isClickedArea6"></app-add-features>
+    <app-update-products *ngIf="isClickedArea7"></app-update-products>
+</div>

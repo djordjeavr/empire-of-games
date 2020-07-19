@@ -1,0 +1,90 @@
+<div class="main">
+    <div class="updateProduct" *ngIf="(product | json) != ({} | json)">
+        <div class="product-component">
+            <span>{{'Image' | translate }}</span>
+            <br>
+            <input type="text" placeholder="{{'Image' | translate }}" [(ngModel)]="product.image">
+            <br>
+            <span>{{'SmallImage' | translate }}</span>
+            <br>
+            <input type="text" placeholder="{{'SmallImage' | translate }}" [(ngModel)]="product.smallImage">
+            <br>
+            <span>{{'Name' | translate }}</span>
+            <br>
+            <input type="text" placeholder="{{'Name' | translate }}" [(ngModel)]="product.name">
+            <br>
+            <span>{{'ReducedPrice' | translate }}</span>
+            <br>
+            <input type="number" placeholder="{{'ReducedPrice' | translate }}"[(ngModel)]="product.reducedPrice">
+            <br>
+            <span>{{'Video' | translate }}</span>
+            <br>
+            <input type="text" placeholder="{{'Video' | translate }}" [(ngModel)]="product.video">
+            <br>
+            <span>{{'Description' | translate }}</span>
+            <br>
+            <textarea name="" id="" cols="55" rows="5" placeholder="{{'Description' | translate }}" [(ngModel)]="product.description"></textarea>
+        </div>
+        <div class='features'> 
+            <span>{{'Companies' | translate }}:</span>
+            <div class="selected">
+         <select  [(ngModel)]="product.company_id"  name="" id="">
+             <option *ngFor="let company of companies" [value]="company.id">{{company.name}}</option>
+         </select>
+            </div>
+         <br>
+         <span>{{'Platforms' | translate }}:</span>
+         <div class="selected">
+         <select  [(ngModel)]="product.platform_id"  name="" id="">
+             <option *ngFor="let platform of platforms"  [value]="platform.id">{{platform.platformName}}</option>
+         </select>
+     </div>
+         <br>
+         <span>{{'Device' | translate }}:</span>
+         <div class="selected">
+         <select  [(ngModel)]="product.device_id"  name="" id="">
+             <option *ngFor="let device of devices"   [value]="device.id">{{device.name}}</option>
+         </select>
+     </div>
+         <br>
+         <span>{{'Genre' | translate }}:</span>
+         <div class="selected">
+         <select  [(ngModel)]="product.genre_id"  name="" id="">
+             <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
+         </select>
+         </div>
+         <br>
+         <span>{{'CategoriesSoftware' | translate }}:</span>
+         <div class="selected">
+         <select  [(ngModel)]="product.subcategory_software_id"  name="" id="">
+             <option *ngFor="let item of category_software"  [value]="item.id">{{item.name}}</option>
+         </select>
+         </div>
+         <br>
+         
+         <span>{{'CategoriesGiftCards' | translate }}:</span>
+     
+         <div class="selected">
+         <select  [(ngModel)]="product.subcategory_gift_card_id"  name="" id="">
+             <option *ngFor="let item of category_gift_cards"    [value]="item.id">{{item.name}}</option>
+         </select>
+         </div>
+         <br>
+         
+         
+     </div>
+     <button (click)="saveProduct()">{{'SaveProduct' | translate }}</button>
+      
+    </div>
+    <div class="orderItems">
+        <h3>{{'Products' | translate }}</h3> <input type="text" [(ngModel)]="nameProducts" (input)="searchAllProducts()" placeholder="{{'Search' | translate }}">
+        <div class="products"> 
+        <div class="product" *ngFor="let product of products" (click)="changeProduct(product)">
+            <img [src]="product.image" alt="">
+             <div class="title">{{product.name}}</div>
+              <div class="price">{{product.price}}EU  <i class="fa fa-ban" aria-hidden="true" (click)="deleteProduct(product.id)"></i></div>
+             
+        </div>
+    </div>
+    
+</div>

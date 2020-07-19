@@ -1,0 +1,43 @@
+.wrapper {
+  width: 100%;
+  height: 400px;
+}
+
+.payment-methods {
+  width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  margin-top: 50px;
+}
+
+.payment-method {
+  width: 250px;
+  float: left;
+  margin-right: 30px;
+  text-align: center;
+  margin-left: 19px;
+  cursor: pointer;
+}
+
+.payment-method:hover {
+  background: #d6d6d6;
+}
+
+.heder {
+  background: #e0e0e0;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.heder p {
+  font-size: 25px;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.heder p span {
+  font-size: 20px;
+  font-weight: 400;
+}
+/*# sourceMappingURL=payment-methods.component.css.map */

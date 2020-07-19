@@ -1,0 +1,43 @@
+<div class="wrapper" *ngIf="!isClicked">
+    <h2>{{'YourBasket' | translate }} <span>({{'Items' | translate }}:{{items}})</span></h2>
+    <hr>
+    <div class="product-container">
+    <div class="product" *ngFor="let product of products">
+        <div class="heder"></div>
+        <div class="image-product" >
+            <img [src]="product.image" alt="">
+        </div>
+        <div class="title-product">
+            <p>{{product.name}}</p>
+            <div class="counter">
+                <button (click)="decreaseCounter(product)" [disabled]="product.item==1"><i class="fa fa-minus" aria-hidden="true"></i></button>
+            <input type="text" [(ngModel)]="product.item" [value]="product.item">
+            <button (click)=" increaseCounter(product)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <br>
+            <span (click)="deleteProductsInBasket(product)">{{'Remove' | translate }}</span>
+        </div>
+        
+        </div>
+        <div class="price">
+            <p >{{product.price *product.item}}</p>
+            <p class="price-item">{{'PerItem' | translate }}: <span>{{ product.price}}EU</span></p>
+        </div>
+    </div>
+</div>
+<div class="totalPrice">
+    <div class="mail">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        @djordjeavram5@gmail.com
+    </div>
+    <button (click)="continueToPayment()">{{'ContinueToPayment' | translate }}</button>
+
+    <div class="price_summary_row">
+        <span>{{'TotalPrice' | translate }}</span>
+        <div style="font-size: 20px; font-weight: 700;" class="price_item_summary">
+            {{totalPrice}}EU
+        </div>
+    </div>
+</div>
+
+</div>
+<app-payment-methods *ngIf="isClicked" [totalPrice]="totalPrice" [products]="products"></app-payment-methods>
