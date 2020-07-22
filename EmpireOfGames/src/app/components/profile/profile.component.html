@@ -15,11 +15,16 @@
     <button (click)=" moveToUpdateUser()">{{'Settings' | translate }}</button>
     <div class="orderItems">
         <h3>{{'PurchasedProducts' | translate }}</h3>
-        <div class="products"> 
+        <div class="empty" *ngIf="(orders | json) == ([] | json)">
+            <p>{{'purchase' | translate }}</p>
+        </div>
+        <div class="products"*ngIf="(orders | json) !== ([] | json)" > 
         <div class="product" *ngFor="let order of orders">
             <img [src]="order.image" alt="">
              <div class="title">{{order.name}}</div>
+            
               <div class="price">{{order.price}}EU</div>
+              <div class="item">x{{order.item}}</div>
         </div>
     </div>
     </div>

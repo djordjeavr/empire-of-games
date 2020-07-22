@@ -69,18 +69,19 @@ button{
     width: 400px;
     padding: 5px;
     float: left;
-    margin-left:200px;
+    margin-left:150px;
     margin-top: 30px;
     font-size: 22px;
     font-weight: 600;
 }
 .price{
-    width: 200px;
+    width: 100px;
     padding: 5px;
     float: right;
     margin-top: 30px;
     font-size: 22px;
     font-weight: 600;
+    margin-left: 50px;
 }
 .product{
     width: 100%;
@@ -93,8 +94,56 @@ button{
     padding: 5px;
     overflow-y: scroll;
 }
-@media only screen and (min-width: 992px) {
+.empty{
+    width: 100%;
+    padding: 20px;
+    padding-top: 30px;
+    height: 700px;
+    p{
+        padding-top:80px;
+        margin-left: 300px;
+        font-size: 52px;
+        font-weight: bold;
+        color: #c7c4c4;
+        float: left;
+ 
+    }
+    img{
+        width: 300px;
+    }
+ }
+ .item{
+    width: 100px;
+    padding: 5px;
+    float: right;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 600;
+ }
+ @media (min-width: 992px) and (max-width: 1199.98px) { 
     button{
         margin-left: 50px;
     }
+    .empty{ 
+        p{ 
+         margin-left: 200px;
+     }
+     }
+}
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .image{
+        margin-right: 15px;
+    }
+   .basicInformation{
+       width: 350px;
+       margin-right: 5px;
+   }   
+   button{
+       margin-left: 10px;
+   } 
+   .empty{ 
+   p{ 
+    margin-left: 200px;
+}
+}
 }

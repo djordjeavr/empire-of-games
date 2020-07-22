@@ -36,7 +36,7 @@
          <span>{{'Platforms' | translate }}:</span>
          <div class="selected">
          <select  [(ngModel)]="product.platform_id"  name="" id="">
-             <option *ngFor="let platform of platforms"  [value]="platform.id">{{platform.platformName}}</option>
+             <option *ngFor="let platform of platforms"  [value]="platform.id">{{platform.name}}</option>
          </select>
      </div>
          <br>
@@ -82,7 +82,7 @@
         <div class="product" *ngFor="let product of products" (click)="changeProduct(product)">
             <img [src]="product.image" alt="">
              <div class="title">{{product.name}}</div>
-              <div class="price">{{product.price}}EU  <i class="fa fa-ban" aria-hidden="true" (click)="deleteProduct(product.id)"></i></div>
+              <div class="price">{{product.price}}EU  </div>
              
         </div>
     </div>

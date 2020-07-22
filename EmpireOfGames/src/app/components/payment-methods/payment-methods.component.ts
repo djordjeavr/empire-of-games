@@ -6,6 +6,7 @@ import { Order } from './Order.class';
 import { UserService } from 'src/app/services/UserService.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-methods',
@@ -17,7 +18,8 @@ export class PaymentMethodsComponent implements OnInit {
   orders=[];
   order:Order=new Order();
   constructor(private restApi:RestApiService,private userService:UserService,
-    public translate:TranslateService,public toastr:ToastrService) { }
+    public translate:TranslateService,public toastr:ToastrService,
+    private router:Router) { }
    
   @Input() totalPrice:number;
   @Input() products:Basket[];
@@ -52,7 +54,7 @@ SaveOrders(payment_method){
   .subscribe(response=>{
     console.log(response);
     this.toastr.success(this.translate.instant('BuyProduct'))
-    
+    this.router.navigateByUrl('home')
   })
   this.orders=[];
   

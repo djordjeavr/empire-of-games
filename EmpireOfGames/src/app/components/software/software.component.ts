@@ -14,10 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./software.component.scss']
 })
 export class SoftwareComponent implements OnInit {
-  collapsed= { 
-    area_hidden:false
- 
-   }
+  
   
    searchProducts:SearchProduct;
    products:number;
@@ -34,16 +31,7 @@ export class SoftwareComponent implements OnInit {
    
     
   }
-   isCollapsed(event){
-    const index=event.target.getAttribute('index');
-    if(index==1){
-      if(!this.collapsed.area_hidden){
-        this.collapsed.area_hidden=true;
-      }
-      else
-   this.collapsed.area_hidden=false;
-    } 
-}
+  
 getAllSoftware(){
   this.restApi.getAllSoftware()
   .subscribe((response:Product[])=>{

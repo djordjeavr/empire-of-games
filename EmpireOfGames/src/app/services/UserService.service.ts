@@ -12,7 +12,6 @@ export class UserService {
         return this.http.post(this.serverUrl+"user/register",user);
     }
     login(user:User){
-        console.log(user);
         return this.http.post(this.serverUrl+"user/login",user); 
     }
     get loggedUser():User{

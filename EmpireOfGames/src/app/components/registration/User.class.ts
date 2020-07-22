@@ -8,6 +8,9 @@ export class User {
     country:string;
     role:string;
     totalProductsPurchased:number;
+     messageError:string;
+     message:string;
+     currentPassword:string;
    
     
 }

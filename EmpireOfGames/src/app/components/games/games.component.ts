@@ -15,13 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
- public  collapsed= { 
-   area_hidden:false,
-   area_hidden1:false,
-   area_hidden2: false,
-   area_hidden3: false,
-   area_hidden4: false
-  }
+ 
   genres:Genre[]=[];
   platforms:Platform[]=[];
   devices:Device[];
@@ -48,44 +42,7 @@ export class GamesComponent implements OnInit {
   
   }
 
-  isCollapsed(event){
-   const index=event.target.getAttribute('index');
-    if(index==1){
-      if(!this.collapsed.area_hidden){
-        this.collapsed.area_hidden=true;
-      }
-      else
-   this.collapsed.area_hidden=false;
-    }
-    if(index==2){
-      if(!this.collapsed.area_hidden1){
-        this.collapsed.area_hidden1=true;
-      }
-      else
-      this.collapsed.area_hidden1=false;
-    }
-    if(index==3){
-      if(!this.collapsed.area_hidden2){
-        this.collapsed.area_hidden2=true;
-      }
-      else
-      this.collapsed.area_hidden2=false;
-    }
-    if(index==4){
-      if(!this.collapsed.area_hidden3){
-        this.collapsed.area_hidden3=true;
-      }
-      else
-      this.collapsed.area_hidden3=false;
-    }
-    if(index==5){
-      if(!this.collapsed.area_hidden4){
-        this.collapsed.area_hidden4=true;
-      }
-      else
-      this.collapsed.area_hidden4=false;
-    }
-  }
+ 
   
   getAllGenres(){
     this.restApi.getAllGenres()

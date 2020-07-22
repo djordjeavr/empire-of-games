@@ -202,6 +202,7 @@ getTotalNumberOfGiftCards:function(req,res){
 },
 getProduct:function(req,res){
   const product=req.body;
+  console.log(product);
   let query= `SELECT  product.*,platform.name as platformName,company.name as companyName,company.logo as companyLogo,platform.logo as platformLogo FROM product  join platform on product.platform_id=platform.id join company on product.company_id=company.id WHERE product.id=${product.id}`; 
   if(product.category==2){
      query= `SELECT product.*,company.name as companyName,company.logo as companyLogo FROM product  join company on product.company_id=company.id WHERE product.id=${product.id}`;
@@ -284,8 +285,9 @@ console.log(features);
 },
 updateProduct:function(req,res){
   const product=req.body;
+  console.log(product);
   conn.query(
-    `UPDATE product SET name='${product.name}', description='${product.description}',image='${product.image}',video='${product.video}',platform_id=${product.platform_id},genre_id=${product.genre_id},subcategory_software_id=${product.subcategory_software_id},subcategory_gift_card_id=${product.subcategory_gift_card_id},company_id=${product.company_id},device_id=${product.device_id},smallImage='${product.smallImage}',reducedPrice=${product.reducedPrice} WHERE id=${product.id}`,function(err,results){
+    `UPDATE product SET name='${product.name}', description='${product.description}',image='${product.image}',video='${product.video}',platform_id=${product.platform_id},genre_id=${product.genre_id},subcategory_software_id=${product.subcategory_software_id},subcategory_gift_card_id=${product.subcategory_gift_card_id},company_id=${product.company_id},device_id=${product.device_id},smallImage='${product.smallImage}' WHERE id=${product.id}`,function(err,results){
         if(err) return res.status(500).send(err);
         res.status(200).json({message:'ChangeProduct'});  
     })
@@ -318,13 +320,5 @@ if(feature.name=='Company'){
     res.status(200).json({message:'DeleteFeature'});  
 })
 },
-DeleteProduct:function(req,res){
-   const productId =req.query.id;
 
-  
-  conn.query(`DELETE FROM product WHERE id=${productId}`,function(err,results){
-    if(err) return res.status(500).send(err);
-    res.status(200).json({message:'DeleteProduct'});  
-})
-}
 }

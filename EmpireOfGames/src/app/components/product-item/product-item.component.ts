@@ -71,7 +71,7 @@ insertInBasket(){
  this.basket.user_id=this.userService.loggedUser.id;
  this.restApi.insertInBasket(this.basket,this.product.sold)
  .subscribe(response=>{
-   this.toastr.success(this.translate.instant('InsertInBasket'))
+   this.toastr.success(this.translate.instant(response['message']))
    this.router.navigateByUrl('basket');
  })
 }

@@ -19,7 +19,7 @@
     "Price-lower":"Cijene-niže",
     "Price-heighest":"Cijene-više",
     "Products":"Proizvodi",
-    "Dashboard":"Dashboard",
+    "Dashboard":"Kontrolna Tabla",
     "AllUsers":"Svi Korisnici",
     "AllProducts":"Svi Proizvodi",
     "AllComments":"Svi Komentari",
@@ -91,5 +91,8 @@
      "ChangeProduct":"Uspjesno obrisana karakteristika",
      "DeleteProduct":"Uspjesno obrisan proizvod",
      "Categories":"Kategorije",
-     "SearchResults":"Rezultati pretrage"
+     "SearchResults":"Rezultati pretrage",
+     "IncorrectPassword/Username":"Netacna lozinka ili korisničko ime",
+     "EmptyCart":"Korpa je prazna",
+     "purchase":"Niste nista kupili"
 }

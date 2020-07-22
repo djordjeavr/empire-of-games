@@ -91,5 +91,8 @@
      "ChangeProduct":"Successfully changed  product",
      "DeleteProduct":"Successfully deleted  product",
      "Categories":"Categories",
-     "SearchResults":"Search results"
+     "SearchResults":"Search results",
+     "EmptyCart":"Cart is empty ",
+     "purchase":"You have not bought anything"
+     
 }

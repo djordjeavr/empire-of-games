@@ -13,10 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./card-gift.component.scss']
 })
 export class CardGiftComponent implements OnInit {
-  collapsed= { 
-    area_hidden:false,
-    area_hidden1:false
-   }
+  
    platforms:Platform[]=[];
    giftCards:Product[]=[];
    numberOfProducts:number;
@@ -32,23 +29,7 @@ export class CardGiftComponent implements OnInit {
    this.getAllGiftCards();
   }
 
-  isCollapsed(event){
-    const index=event.target.getAttribute('index');
-    if(index==1){
-      if(!this.collapsed.area_hidden){
-        this.collapsed.area_hidden=true;
-      }
-      else
-   this.collapsed.area_hidden=false;
-    }
-    if(index==2){
-      if(!this.collapsed.area_hidden1){
-        this.collapsed.area_hidden1=true;
-      }
-      else
-      this.collapsed.area_hidden1=false;
-    } 
-}
+ 
 getAllPlatforms(){
   this.restApi.getAllPlatforms()
   .subscribe((response:Platform[])=>{
@@ -74,6 +55,8 @@ changeSelecttionPlatform(){
   this.searchProducts.platformIds=this.checkedPlatformIDs.toString();
  this.restApi.searchForGiftCards(this.searchProducts)
  .subscribe((response:Product[])=>{
+   console.log(response);
+   
    this.commonService.allProducts=response;
   
    

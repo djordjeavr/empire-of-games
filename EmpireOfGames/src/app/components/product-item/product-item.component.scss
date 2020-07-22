@@ -18,7 +18,7 @@
 }
 
 .info{
-    width: 580px;
+    width: 500px;
     height: 350px;
     float: left;
 }
@@ -32,7 +32,7 @@
             float: left;
             list-style-type: none;
             text-decoration: none;
-            margin-right: 20px;
+            margin-right: 5px;
             padding-right: 10px;
             border-right: 1px solid #e0e0e0 ;
             color: #d6d6d6;
@@ -181,10 +181,29 @@
             }
         }
     }
-    @media only screen and (min-width: 992px) {
+  
+    @media (min-width: 992px) and (max-width: 1199.98px) { 
         .info{
-            width: 330px;
+            width: 300px;
+            li{
+                font-size: 13px;
+            }
+           
+        }
+        .price{
+            width: 410px ;
+        }
+       
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) { 
+        .product-payment{
+            margin-top: 0px;
+        }
+        .image{ 
+            width: 300px;
+        img{
+            width: 270px !important;
         }
     }
-
-   
+    }  
+    

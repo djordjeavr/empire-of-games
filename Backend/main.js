@@ -62,7 +62,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
        app.get('/all/orders',orderDAO.getAllOrders);
        app.post('/insert/features',productDAO.InsertNewFeatures);
        
-       app.delete('/delete/product',productDAO.DeleteProduct);
+     
        app.delete('/delete/feature',productDAO.DeleteFeature);
        app.put('/update/product',productDAO.updateProduct);
        app.post('/save/orders',basketDAO.SaveOrdersForUser);

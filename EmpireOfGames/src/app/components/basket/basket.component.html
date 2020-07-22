@@ -1,6 +1,12 @@
-<div class="wrapper" *ngIf="!isClicked">
+
+<div class="empty" *ngIf="(products | json) == ([] | json)">
+    <p>{{'EmptyCart' | translate }}</p>
+    <img src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png" alt="">
+</div>
+<div class="wrapper" [ngClass]="{hidden:isClicked }"  *ngIf="(products | json) !== ([] | json)">
     <h2>{{'YourBasket' | translate }} <span>({{'Items' | translate }}:{{items}})</span></h2>
     <hr>
+    
     <div class="product-container">
     <div class="product" *ngFor="let product of products">
         <div class="heder"></div>

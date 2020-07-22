@@ -10,6 +10,7 @@ import { Category } from '../add-product/Category.class';
 import { Company } from '../games/Company.class';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-products',
@@ -28,7 +29,7 @@ categories:Category[]=[];
 companies:Company[]=[];
 nameProducts:string;
   constructor(private restApi:RestApiService,private toastr:ToastrService,
-    public translate:TranslateService) { }
+    public translate:TranslateService,private router:Router) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -118,12 +119,5 @@ nameProducts:string;
        
     })
    }
-   deleteProduct(productId){
-     
-     this.restApi.deleteProduct(productId)
-     .subscribe(response=>{
-       this.toastr.success(this.translate.instant(response['message']));
-       this.getAllProducts();
-     })
-   }
+  
 }

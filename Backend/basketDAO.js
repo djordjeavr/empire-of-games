@@ -39,24 +39,74 @@ function UpdateTotalProductsPurchasedFromUser(userid,totalProductsPurchased){
 
   })
 }
+function getAllProductsFromBasket(userId){
+ 
+  return new Promise(function(resolve,reject){
+    conn.query(`SELECT * FROM basket WHERE user_id=${userId}`,
+        function(err,result){
+          if(err) return reject(err);
+          console.log(result);
+         resolve(result)
+          })
+  })
+}
+function InsertProductInBasket(product){
+  return new Promise(function(resolve,reject){
+    conn.query('INSERT INTO basket SET ? ',[product],
+        function(err,result){
+          if(err) return reject(err);
+         resolve(result)
+          })
+  })
+}
+function updateSoldProduct(productSold,product_id){
+  return new Promise(function(resolve,reject){
+    conn.query(`UPDATE product SET sold= ${productSold} WHERE id =${product_id}`,
+        function(err,result){
+          if(err) return reject(err);
+         resolve(result)
+          })
+  })
+}
+function updateItem(item,product_id,userId){
+  return new Promise(function(resolve,reject){
+    conn.query(`UPDATE basket SET item= ${item} WHERE product_id =${product_id} AND user_id=${userId}`,
+        function(err,result){
+          if(err) return reject(err);
+         resolve(result)
+          })
+  })
+}
 
 
 module.exports={ 
-insertInBasket:function(req,res){
-  const product=req.body[0];
+insertInBasket: async function(req,res){
+  const request=req.body[0];
+ 
   const productSold=req.body[1]
-  console.log(product);
-  conn.query('INSERT INTO basket SET ? ',[product],
-  function(err,result){
-    if(err) return res.send(err);
+  const products= await getAllProductsFromBasket(request.user_id);
+  const product =products.find(product=>request.product_id==product.product_id)
+  
+  
+  try{ 
+    if(product){
+      product.item++;
+     await updateItem(product.item,request.product_id,request.user_id);
+
+    }
     
-    conn.query(`UPDATE product SET sold= ${productSold} WHERE id =${product.product_id}`,
-    function(err,result){
-      if(err) return res.send(err);
-      
-      })
-      res.status(200).json(result[0]);
-    })
+    if(!product){ 
+    await InsertProductInBasket(request);
+    res.status(200).json({message:'InsertInBasket'});
+      await updateSoldProduct(productSold,request.product_id);
+ 
+    }
+  
+  
+ 
+}catch(err){
+  res.status(500).send(err)
+}
 },
 getAllProductFromBasket:function(req,res){
     const userId=req.query.user_id;

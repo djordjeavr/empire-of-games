@@ -14,10 +14,10 @@
     <div class="category">
         <div class="filters-wrapper">
           <div class="filters-title" style="font-weight: 400;">{{'FilterProducts' | translate }}</div>
-          <div class="filters-title" (click)="isCollapsed($event)" index='1'>{{'Price' | translate }} <i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!collapsed.area_hidden"></i>
-            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden"></i>
+          <div class="filters-title" (click)="commonService.isCollapsed($event)" index='1'>{{'Price' | translate }} <i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!commonService.collapsed.area_hidden"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="commonService.collapsed.area_hidden"></i>
         
-        <div class="price-filter" *ngIf="collapsed.area_hidden">
+        <div class="price-filter" *ngIf="commonService.collapsed.area_hidden">
             <input [(ngModel)]=" searchProducts.priceFrom" type="number" placeholder="{{'From' | translate }}" (keyup.enter)="searchSoftware()">
             <span>  -  </span>
             <input type="number" placeholder="{{'To' | translate }}" [(ngModel)]="searchProducts.priceTo" (keyup.enter)="searchSoftware()">

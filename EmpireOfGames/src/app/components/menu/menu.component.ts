@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
  productsSearched:Product[];
  nameProducts:string='';
  isClickedSearch:boolean=false;
+mode:string;
   constructor(private restApi:RestApiService, private router:Router,
     public userService:UserService,public commonService:CommonService,public translate: TranslateService) { 
       
@@ -91,5 +92,6 @@ export class MenuComponent implements OnInit {
    moveToProfile(){
      this.router.navigateByUrl('profile');
    }
+  
 
 }

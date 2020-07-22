@@ -15,18 +15,18 @@
     <div class="category">
         <div class="filters-wrapper">
           <div class="filters-title" style="font-weight: 400;">{{'FilterProducts' | translate }}</div>
-          <div class="filters-title" (click)="isCollapsed($event)" index='1'>{{'Price' | translate }}<i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!collapsed.area_hidden"></i>
-            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden"></i>
+          <div class="filters-title" (click)="commonService.isCollapsed($event)" index='1'>{{'Price' | translate }}<i class="fa fa-sort-desc" aria-hidden="true" *ngIf="!commonService.collapsed.area_hidden"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="commonService.collapsed.area_hidden"></i>
         
-        <div class="price-filter" *ngIf="collapsed.area_hidden">
+        <div class="price-filter" *ngIf="commonService.collapsed.area_hidden">
             <input type="number" [(ngModel)]="searchProducts.priceFrom" placeholder="{{'From' | translate }}" (keyup.enter)="searchAllProducts()">
             <span>  -  </span>
             <input type="number" [(ngModel)]="searchProducts.priceTo" placeholder="{{'To' | translate }}" (keyup.enter)="searchAllProducts()">
         </div>
         </div>
-        <div class="filters-title" (click)="isCollapsed($event)" index='2'>{{'Platforms' | translate }} <i class="fa fa-sort-desc" aria-hidden="true"  *ngIf="!collapsed.area_hidden1"></i>
-            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="collapsed.area_hidden1"></i>
-            <ul *ngIf="collapsed.area_hidden1">
+        <div class="filters-title" (click)="commonService.isCollapsed($event)" index='2'>{{'Platforms' | translate }} <i class="fa fa-sort-desc" aria-hidden="true"  *ngIf="!commonService.collapsed.area_hidden1"></i>
+            <i class="fa fa-sort-asc" aria-hidden="true" *ngIf="commonService.collapsed.area_hidden1"></i>
+            <ul *ngIf="commonService.collapsed.area_hidden1">
                 <li *ngFor="let platform of platforms"><input  [(ngModel)]="platform.isChecked" (change)="changeSelecttionPlatform()" type="checkbox"> {{platform.name}} </li>  
             </ul>
         </div>

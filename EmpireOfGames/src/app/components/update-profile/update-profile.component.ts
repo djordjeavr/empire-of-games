@@ -28,11 +28,13 @@ confirmPassword:string;
     
     
     if(this.user.password || this.user.email || this.user.username && this.currentPassword){
-    for (let i = 0; i < this.users.length; i++) {
+   
     
-    if(this.currentPassword==this.users[i].password){ 
-      if(this.confirmPassword==this.user.password){ 
+   
     this.user.id=this.userService.loggedUser.id;
+    this.user.currentPassword=this.currentPassword;
+    console.log(this.user);
+    
   this.userService.updateUser(this.user)
   .subscribe(response=>{
     console.log(response);
@@ -42,16 +44,8 @@ confirmPassword:string;
 
   })
 }
-else{
-  this.toastr.error(this.translate.instant('ErrorPassword'))
-}
-    }
- 
-else if(this.currentPassword!==this.users[i].password){
- this.toastr.error(this.translate.instant('CurrentPassword'))
-}
-}
-}
+
+
 
   }
   getAllUsers(){

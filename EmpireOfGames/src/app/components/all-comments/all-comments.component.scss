@@ -14,9 +14,15 @@ th{
 td{
     text-align: center;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1199.98px) { 
     .main{
         padding: 5px;
         width: 70%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .main{
+        padding: 5px;
+        width: 65%;
     }
 }
